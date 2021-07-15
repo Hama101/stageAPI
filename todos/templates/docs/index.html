@@ -32,12 +32,6 @@
 
     <!-- CUSTOM -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css'%}">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style>
         code{
             font-size: xx-large;
@@ -61,6 +55,33 @@
             text-shadow: none !important;
         }
     </style>
+    <style>
+        div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 400px;
+        height:400px;
+        }
+
+        div.gallery:hover {
+        border: 1px solid #777;
+        }
+
+        div.gallery img {
+        width: 100%;
+        height: 80%;
+        }
+
+        div.desc {
+        padding: 15px;
+        text-align: center;
+        }
+        img{
+            height: 500px;
+            width: 600px;
+        }
+</style>
 </head>
 
 <body>
@@ -139,8 +160,8 @@
                             <li><a href="#line5">User/auth end points</a></li>
                             <li><a href="#line6">Team end points</a></li>
                             <li><a href="#line7">Task end points</a></li>
-                            <li><a href="#line8">Admin end points</a></li>
-                            <li><a href="#line9">Usefull end points</a></li>
+                            <li><a href="#line8">Admin Panel</a></li>
+                            <li><a href="#line9">Conclusion</a></li>
                         </ul>
                     </nav >
                 </div>
@@ -172,7 +193,7 @@
                                             <p>This documentation is to help you regarding each step of customization. Please go through the documentation carefully to understand how this API is made and how to edit this properly. Basic Django , RestApi knowledge is required to customize this API. You may learn basics <a href="https://www.djangoproject.com" target="_blank">here</a>, <a href="https://www.django-rest-framework.org" target="_blank">here</a> . </p>
 
                                             <h4>Requirements</h4>
-                                            <p>You will need the following sofwares to customize this API.</p>
+                                            <p>You will need the following softwares to customize this API.</p>
                                             <ol>
                                                 <li>Code Editing Software (eg: VsCode, Sublime Text or ...)</li>
                                                 <li>Web Browser for testing (eg: Google Chrome or Mozilla Firefox)</li>
@@ -206,7 +227,7 @@
                             <div class="col-md-12">
                                 <p>In this we will go step by step to install the requirements for the developing enevermient </p>
 
-                                <h4>Python progrmming language </h4>
+                                <h4>Python programming language </h4>
 
                                 <ol>
                                     <li>
@@ -250,18 +271,24 @@
 
                         <p>Make sure you know what <a href="https://git-scm.com" target="_blank" >Git</a> and <a href="http://github.com" target="_blank" >Github</a> are !</p>
                         <code>
-                            
+                            #create new folder and open GitCLI
+                                python -m venv env
+                                source env/scripts/activate
+                                git clone https://github.com/HamdiAAA/stageAPI
+                                pip install -r pip.txt
+                            #after installing vscode 
+                                code . #to open the vscode
+                                python manage.py runserver
                         </code>
                         <br>
-                        <a href="https://git-scm.com" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
+                        <a href="https://git-scm.com" target="_blank" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
                         <hr>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="media">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/snFzbPm_RUE" frameborder="0" allowfullscreen></iframe>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IlmICfGQOv4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
-
                         </div>
 
                     </section>
@@ -271,94 +298,38 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Install Theme <hr></h2>
+                                <h2 class="dark-text">Data Base Model<hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
-                        <h4>Upload via WordPress Admin</h4>
-
-                        <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                        <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-
-                        <hr>
-
-                        <h4>Upload via FTP Server</h4>
-
-                        <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                        <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-                        <hr>
+<hr>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="media">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/yQnQyI5WlKs" frameborder="0" allowfullscreen></iframe>
-                                </div>
-
-                            </div>
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/z0kEVwJB_go" frameborder="0" allowfullscreen></iframe>
-                                </div>
-
+                                <a href="{% static 'images/mine/Task.png'%}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'images/mine/Task.png'%}" height="350" width="350" alt="Data Base Model" allowfullscreen>
+                                </a>    
                             </div>
                         </div>
-
                     </section>
                     <!-- end section -->
-
                     <section id="line4" class="section">
-
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Necessary Plugins <hr></h2>
+                                <h2 class="dark-text">All API endpoints<hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
                         <div class="row">
-                            <div class="col-md-4">
-                                <img src="images/upload/plugin1.png" alt="" class="img-responsive img-thumbnail">
-                                <h4>Plugin name #1</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <img src="images/upload/plugin2.png" alt="" class="img-responsive img-thumbnail">
-                                <h4>Plugin name #2</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <img src="images/upload/plugin3.png" alt="" class="img-responsive img-thumbnail">
-                                <h4>Plugin name #3</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-                                </div>
-                            </div>
+                            <img src="{%static 'images/mine/api.jpg'%}" height="500" width="500">
                         </div>
-                        <!-- end row -->
-
                     </section>
                     <!-- end section -->
-
                     <section id="line5" class="section">
-
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Creating Blog Pages <hr></h2>
+                                <h2 class="dark-text">User/auth end points<hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
@@ -367,44 +338,94 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                <p>In this section we will explain how the user models are created and managed .</p>
                             </div>
 
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4 id="line5_1">WordPress Blog Page -</h4>
+                            <div class="">
+                                <h4 id="line5_1">I- Models.py</h4>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <li>
+                                        <strong>Step 1</strong> - Django provides use with a basic user class model that bundles out of the box features like user creation and password hashing.
+                                        <br> <br>
+                                        <img src="{% static 'images/mine/iuser.jpg'%}" alt="">
+                                    </li>
+                                    <li>
+                                        <strong>Step 2</strong> - We create an administrator user model and a worker model, each of them represents a different type of user that will affect their behavior later.
+                                        <br>
+                                        <img src="{% static 'images/mine/users.jpg'%}" alt="">
+                                    </li>
+                                    <li>
+                                        <strong>Step 3</strong> - We run the necessary commands to migrate the database.
+                                        <code>
+                    #in the command terminal
+                        python manage.py makemigrations
+                        python manage.py migrate
+                                        </code>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end col -->
+                            <div class="">
+                                <h4 id="line5_2">II - Api.py</h4>
+                                <p>api.py is used to serialize database data to object responses read more about <a href="https://www.django-rest-framework.org/tutorial/1-serialization/" target="_blank" >django-rest-framework </a> .</p>
+                                <ul>
+                                <li>
+                                        <strong>Step 1</strong> - User serializer .
+                                    <br>
+                                        <img src="{%static 'images/mine/suser.jpg'%}" alt="">
+                                </li>
+                                    <li>
+                                            <strong>Step 2</strong> - AdminUser serializer .
+                                        <br>
+                                            <img src="{%static 'images/mine/sadmin.jpg'%}" alt="">
+                                    </li>
+                                    <li>
+                                            <strong>Step 3</strong> - Worker serializer.
+                                        <br>
+                                            <img src="{%static 'images/mine/sworker.jpg'%}" alt="">
+                                    </li>
                                 </ul>
                             </div>
                             <!-- end col -->
 
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4 id="line5_2">Blog Post Sections -</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
+                            <div class="4">
+                                <h4 id="line5_3">III - views.py</h4>
+                                <p>Here we will be building the logic for your user api endpoints .</p>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <li>
+                                        <strong>Step 1</strong> - Django provides us with a basic user control view class .
+                                        <img src="{%static 'images/mine/userApi.jpg'%}" alt="">
+                                    </li>
+                                    <li>
+                                        <strong>Step 2</strong> - Here we will use JWT and Knox libraries to handle the user login logout and authentication logic.
+                                        <img src="{% static 'images/mine/loginApi.jpg' %}" alt="">
+                                    </li>
+                                    <li>
+                                        <strong>Step 3</strong> - This is our costume made api function to handel the sign up logic .
+                                        <img src="{% static 'images/mine/singup.jpg' %}" alt="">
+                                    </li>
+                                    <li>
+                                        <strong>Step 4</strong> - Now all we have to do is assign those view to some url routes  .
+                                        <img src="{% static 'images/mine/urls.jpg' %}" alt="">
+                                    </li>
                                 </ul>
                             </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4 id="line5_3">Create Blog Gallery -</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                                <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
-                                </ul>
+                            <div class="4">
+                                <h4 id="line5_3">IV - Testing the API</h4>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/t1.jpg'%}">
+                                        <img src="{%static 'images/mine/t1.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">User login endpoint.</div>
+                                </div>
+                                    <div class="gallery">
+                                        <a  href="{%static 'images/mine/t2.jpg'%}">
+                                            <img src="{%static 'images/mine/t2.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">User signup endpoint.</div>
+                                    </div>
                             </div>
                             <!-- end col -->
-
                         </div>
                         <!-- end row -->
 
@@ -415,7 +436,7 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Install Revolution Slider <hr></h2>
+                                <h2 class="dark-text">Team API end points <hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
@@ -424,32 +445,86 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                <p></p>
                             </div>
 
-                            <div class="col-md-6">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4>Installation Slider</h4>
+                            <div class="">
+                                <h4>I- Models.py </h4>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <a href="{% static 'images/mine/team.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'images/mine/team.jpg'%}" alt="">
+                                </a>
                                 </ul>
                             </div>
                             <!-- end col -->
 
-                            <div class="col-md-6">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4>Updating Slider</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
+                            <div class="">
+                                <h4>II- Api.py </h4>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <a href="{% static 'images/mine/teamApi.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'images/mine/teamApi.jpg'%}" alt="">
+                                </a>
                                 </ul>
                             </div>
                             <!-- end col -->
+                            <div class="">
+                                <h4>III- Views.py </h4>
+                                <p> CRUD for Team Model</p>
+                                <ul>
+                                    <li>
+                                        <a href="{% static 'images/mine/teamV1.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{% static 'images/mine/teamV1.jpg'%}" alt="">
+                                            </a>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a href="{% static 'images/mine/teamV2.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{% static 'images/mine/teamV2.jpg'%}" alt="">
+                                            </a>
+                                    </li>
+                                </ul>
+                            </div>
 
+                            <div class="">
+                                <h4>IV- Testing the Api</h4>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/team1.jpg'%}">
+                                        <img src="{%static 'images/mine/team1.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">Team List .</div>
+                                </div>
+                               
+                                <div class="gallery">
+                                        <a  href="{%static 'images/mine/team2.jpg'%}">
+                                            <img src="{%static 'images/mine/team2.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">Team Create.</div>
+                                </div>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/team3.jpg'%}">
+                                        <img src="{%static 'images/mine/team3.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">View Team.</div>
+                                </div>
+                                    <div class="gallery">
+                                        <a  href="{%static 'images/mine/team4.jpg'%}">
+                                            <img src="{%static 'images/mine/team4.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">Delete Team.</div>
+                                </div>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/team5.jpg'%}">
+                                        <img src="{%static 'images/mine/team5.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">Update Team.</div>
+                                </div>
+                                    <div class="gallery">
+                                        <a  href="{%static 'images/mine/team6.jpg'%}">
+                                            <img src="{%static 'images/mine/team6.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">User Team.</div>
+                                </div>
+                            </div>
                         </div>
                         <!-- end row -->
 
@@ -460,115 +535,89 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Use Option Panel <hr></h2>
+                                <h2 class="dark-text">Task end points <hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
+                        
                         <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+
+                            <div class="col-md-12">
+                                <p></p>
                             </div>
 
-                            <div class="col-md-8">
-                                <h4 id="line7_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_2">Style Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                            <div class="">
+                                <h4>I- Models.py </h4>
+                                <ul>
+                                    <a href="{% static 'images/mine/task.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'images/mine/task.jpg'%}" alt="">
+                                </a>
+                                </ul>
                             </div>
                             <!-- end col -->
-                        </div>
-                        <!-- end row -->
 
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_3">Header Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                            <div class="">
+                                <h4>II- Api.py </h4>
+                                <ul>
+                                    <a href="{% static 'images/mine/taskApi.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'images/mine/taskApi.jpg'%}" alt="">
+                                </a>
+                                </ul>
                             </div>
                             <!-- end col -->
+                            <div class="">
+                                <h4>III- Views.py </h4>
+                                <p> CRUD for Team Model</p>
+                                <ul>
+                                    <li>
+                                        <a href="{% static 'images/mine/tv1.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{% static 'images/mine/tv1.jpg'%}" alt="">
+                                            </a>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a href="{% static 'images/mine/tv2.jpg'%}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{% static 'images/mine/tv2.jpg'%}" alt="">
+                                            </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="">
+                                <h4>IV- Testing the Api</h4>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/task1.jpg'%}">
+                                        <img src="{%static 'images/mine/task1.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">task List .</div>
+                                </div>
+
+                                <div class="gallery">
+                                        <a  href="{%static 'images/mine/task2.jpg'%}">
+                                            <img src="{%static 'images/mine/task2.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">task Create.</div>
+                                </div>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/task3.jpg'%}">
+                                        <img src="{%static 'images/mine/task3.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">View task.</div>
+                                </div>
+                                    <div class="gallery">
+                                        <a  href="{%static 'images/mine/task4.jpg'%}">
+                                            <img src="{%static 'images/mine/task4.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">Update task.</div>
+                                </div>
+                                <div class="gallery">
+                                    <a  href="{%static 'images/mine/task5.jpg'%}">
+                                        <img src="{%static 'images/mine/task5.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                    </a>
+                                        <div class="desc">Delete task.</div>
+                            </div>
                         </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_4">Font Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_5">Slider Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_6">Page Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_7">Import & Export Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
                     </section>
                     <!-- end section -->
 
@@ -576,44 +625,42 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Support Desk <hr></h2>
+                                <h2 class="dark-text">Admin Panel <hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <p>Please remember you have purchased a very affordable theme and you have not paid for a full-time web design agency. Occasionally we will help with small tweaks, but these requests will be put on a lower priority due to their nature. Support is also 100% optional and we provide it for your connivence, so please be patient, polite and respectful.</p>
+                            <p>
+                                One of the most powerful parts of Django is the automatic admin interface. It reads metadata from your models to provide a quick, model-centric interface where trusted users can manage content on your site. The admin’s recommended use is limited to an organization’s internal management tool. It’s not intended for building your entire front end around.
 
-                                <p>Please visit our <a href="http://themeforest.net/user/yourusername"><strong>profile page</strong></a> or ask question <a href="mailto:yourusername@gmail.com">@yourusername</a></p>
-
-                                <strong>Support for my items includes:</strong>
-                                <ul>
-                                    <li>* Responding to questions or problems regarding the item and its features</li>
-                                    <li>* Fixing bugs and reported issues</li>
-                                    <li>* Providing updates to ensure compatibility with new software versions</li>
-                                </ul>
-                                <strong>Item support does not include:</strong>
-                                <ul>
-                                    <li>* Customization and installation services</li>
-                                    <li>* Support for third party software and plug-ins</li>
-                                </ul>
-
+The admin has many hooks for customization, but beware of trying to use those hooks exclusively. If you need to provide a more process-centric interface that abstracts away the implementation details of database tables and fields, then it’s probably time to write your own views.
+                            </p>
+                            <div class="gallery">
+                                <a  href="{%static 'images/mine/admin1.jpg'%}">
+                                    <img src="{%static 'images/mine/admin1.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                </a>
+                                    <div class="desc">Delete task.</div>
                             </div>
-
-                            <div class="col-md-6">
-                                <strong>Before seeking support, please...</strong>
-                                <ul>
-                                    <li>* Make sure your question is a valid Theme Issue and not a customization request.</li>
-                                    <li>* Make sure you have read through the documentation and any related video guides before asking support on how to accomplish a task.</li>
-                                    <li>* Make sure to double check the theme FAQs.</li>
-                                    <li>* Try disabling any active plugins to make sure there isn't a conflict with a plugin. And if there is this way you can let us know.</li>
-                                    <li>* If you have customized your theme and now have an issue, back-track to make sure you didn't make a mistake. If you have made changes and can't find the issue, please provide us with your changelog.</li>
-                                    <li>* Almost 80% of the time we find that the solution to people's issues can be solved with a simple "Google Search". You might want to try that before seeking support. You might be able to fix the issue yourself much quicker than we can respond to your request.</li>
-                                    <li>* Make sure to state the name of the theme you are having issues with when requesting support via ThemeForest.</li>
-                                </ul>
+                            <div class="gallery">
+                                <a  href="{%static 'images/mine/admin2.jpg'%}">
+                                    <img src="{%static 'images/mine/admin2.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                </a>
+                                    <div class="desc">Delete task.</div>
                             </div>
+                            <div class="gallery">
+                                <a  href="{%static 'images/mine/admin3.jpg'%}">
+                                    <img src="{%static 'images/mine/admin3.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                </a>
+                                    <div class="desc">Delete task.</div>
+                            </div>
+                            <div class="gallery">
+                                <a  href="{%static 'images/mine/admin4.jpg'%}">
+                                    <img src="{%static 'images/mine/admin4.jpg'%}" alt="Cinque Terre" width="600" height="400">
+                                </a>
+                                    <div class="desc">Delete task.</div>
+                            </div>  
                         </div>
                         <!-- end row -->
 
@@ -624,166 +671,18 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Files & Sources <hr></h2>
+                                <h2 class="dark-text">Conclusion<hr></h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <strong>Included Stylesheets</strong>
-
-                                <p>These are the primary CSS files used for general front-end styling. Use these to customize your theme even further. All included JavaScript codes under <strong>yourthemename/css/</strong></p>
-
-                                <ul>
-                                    <li>1. style.css - Primary stylesheet</li>
-                                    <li>2. bootstrap.css - Bootstrap stylesheet</li>
-                                    <li>3. owl-carousel.css - OWL Carousel</li>
-                                    <li>4. fontawesome.css - FontAwesome Font Icons stylesheet</li>
-                                    <li>5. custom.css - Pathos Color Schemes stylesheet</li>
-                                    <li>6. prettyPhoto.css - Lightbox effect css file</li>
-                                    <li>7. flexslider.css - Flexslider css file</li>
-                                    <li>8. et-line.css - Elegant icons css file</li>
-                                    <li>9. carousel.css - OWL Carousel css file</li>
-                                    <li>10. animate.css - CSS3 animations css file</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <strong>Included JavaScript</strong>
-
-                                <p>These are the various attribution inks to the Javascript files included or modified to work with in this theme. All included JavaScript codes under <strong>yourthemename/js/</strong></p>
-
-                                <ul>
-                                    <li>1. bootstrap.js - Bootstrap JavaScript</li>
-                                    <li>2. custom.js - All JavaScript Plugins</li>
-                                    <li>3. retina.js - Retina JavaScript</li>
-                                    <li>4. jquery.js - Base JavaScript</li>
-                                    <li>5. prettyPhoto.js - Lightbox JavaScript</li>
-                                    <li>6. owl-carousel.js - Lightbox JavaScript</li>
-                                    <li>7. revslider.js - Revolution Slider JavaScript</li>
-                                    <li>8. flexslider.js - Flexslider JavaScript</li>
-                                    <li>9. awesome-grid.nin.js - Awesome grid portfolio JavaScript</li>
-                                    <li>10. circle.js - Coming soon page JavaScript</li>
-                                    <li>11. contact.js - Contact form validate JavaScript</li>
-                                    <li>12. isotope.js - Masonry Portfolio JavaScript</li>
-                                    <li>13. progress.js - Progress bar JavaScript</li>
-                                    <li>14. rotate.js - Text rotate effect JavaScript</li>
-                                    <li>15. wow.js - CSS3 animation JavaScript</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <strong>The main goal behind writing and developing this API is to help passionate front-end developers build and maintain their applications.
+                            this document was created with the help of this <a href="https://blog.api.rakuten.net/best-practices-for-writing-api-documentation/" target="_blank">Blog</a></strong>
                         <!-- end row -->
 
                     </section>
                     <!-- end section -->
 
-                    <section id="line10" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Version History (Changelog) <hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <p>You can find the version history (changelog.txt) file on <strong>yourthemename-full.zip</strong> folder or you can check changelog on theme sale page.</p>
-                                <p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
-
-                                <hr>
-
-                                <h4>Changelog</h4>
-
-                                <pre class="brush: html">
-
-                                        -----------------------------------------------------------------------------------------
-                                        Version 3.8.4 - May 7th, 2015
-                                        -----------------------------------------------------------------------------------------
-
-                                        - new revolution slider plugin version
-                                        - fixed security issue with xss vulnerability
-                                        - improved demo importer for certain server environments
-                                        - updated WooCommerce template files for the outdated message in system status
-                                        - added suhosin check in system status 
-                                        - added information that explains ZipArchive is required on your server for importing demos 
-                                        - portfolio Grid template improvement
-                                        - added more information to demo popup message for individual demo requirements
-                                        - RTL style improvements
-                                        - breadcrumb function improved for various areas
-
-                                        -----------------------------------------------------------------------------------------
-                                        Version 3.8.3 - May 7th, 2015
-                                        -----------------------------------------------------------------------------------------
-                                        - fixed responsive / retina issue for larger logos
-                                        - fusion slider now uses responsive headings all the time
-                                        - dropped custom Avada styles for select boxes in IE since it is not supported
-                                        - fixed compatibility issue with Category Order and Taxonomy Terms Order plugin
-                                        - fixed issue of full width background being affected by padding options
-                                        - tested and fixed hellobar issue 
-                                        - typography settings now apply to single post pages
-                                        - improved smooth scroll in certain situations
-                                        - youtube & vimeo videos will show at normal size in light box as long as video embed link is not used
-                                        - fixed issue of â€œfixedâ€ featured image mode not working for carousels / recent work
-                                        - fixed issue of header tagline font not working with font options
-
-                                        -----------------------------------------------------------------------------------------
-                                        Version 3.8.2 - May 7th, 2015
-                                        -----------------------------------------------------------------------------------------
-                                        - fixed formatting issues with Turkish language files 
-                                        - letter spacing menu option improvement
-                                        - improved fusion slider max content width setting
-                                        - removed the â€œdisable first featured image on productsâ€ setting since it does not apply
-                                        - improved portfolio featured image loading
-                                        - removed encoding from tracking code, space before head, space before body, and custom CSS to stop it from parsing code within TO and removing special characters e.g. +
-                                        - woo login box now shows login fields for logged out users
-                                        - woo cart / my account links now show on mobile 
-                                        - fixed button styling issue with gravity forms
-
-
-                                      </pre>
-
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line11" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Copyright and license <hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                
-                                <p>Code released under the <a href="#" target="_blank">Un License</a> License.</p>                        
-                                <p>For more information about copyright and license check <a href="https://choosealicense.com/" target="_blank">choosealicense.com</a>.</p>
-                            
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-                </div>
-                <!-- // end .col -->
-
-            </div>
-            <!-- // end .row -->
-
-        </div>
         <!-- // end container -->
 
     </div>

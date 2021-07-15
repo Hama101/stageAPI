@@ -1,7 +1,19 @@
 
-from django.urls import path , include
+from django.urls import path 
 from . import views as v
+from knox import views as knox_views
+from .views import LoginAPI
+
+#users
 urlpatterns = [
+    path('signup/',v.signup,name="signup"),
+    path('login/', LoginAPI.as_view(), name='login'),
+    path('logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
+    path('user/',v.UserAPI().as_view(),name="user"),
+]
+#task
+urlpatterns += [
     path('',v.docs , name="docs"),
     #task
     path('todos/<str:username>/',v.todos , name="todos"),
@@ -9,25 +21,11 @@ urlpatterns = [
     path('addTask/',v.addTask , name="addTask"),
     path('updateTask/<str:pk>/',v.updateTask , name="updateTask"),
     path('deleteTask/<str:pk>/',v.deleteTask , name="deleteTask"),
-    path('isAdminUser/<str:username>/',v.isAdminUser , name="isUserName"),
-    #user
-    path('signup/',v.signup,name="signup"),
 ]
 
-from knox import views as knox_views
-from .views import LoginAPI
-from django.urls import path
-
-urlpatterns += [
-    path('login/', LoginAPI.as_view(), name='login'),
-    path('logout/', knox_views.LogoutView.as_view(), name='logout'),
-    path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
-    path('user/',v.UserAPI().as_view(),name="user"),
-]
-
-#Teams Logic
+#Teams
 urlpatterns +=[
-    path("myTeams/<str:username>/",v.myTeams , name="myTeams"),
+    path('isAdminUser/<str:username>/',v.isAdminUser , name="isUserName"),
     path("workers/",v.workers,name="workers"),
     path("getUserIds/<str:username>/",v.getUserIds , name="getUserIds"),
     path('getTeamWorkers/<str:pk>/', v.getTeamWorkers , name="getTeamWorkers"),

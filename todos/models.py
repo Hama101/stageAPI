@@ -38,7 +38,6 @@ class Task(models.Model):
         ("Doing", "Doing"),
         ("Done", "Done")
     ]
-    # we will change the user name after this to ForeignKey
     worker = models.ForeignKey(
         Worker, blank=True, null=True, on_delete=models.CASCADE)
     team = models.ForeignKey(

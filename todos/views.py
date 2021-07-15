@@ -1,62 +1,26 @@
 from django.contrib.auth.models import User
 from .models import *
-
 from django.shortcuts import render , redirect 
 from knox.models import AuthToken
 from django.contrib.auth import login
-
 from rest_framework import permissions
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
-
 from .models import *
-
 from .api import *
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
 from rest_framework import generics, permissions
 
-# usefull functions
-
-
-@api_view(['GET'])
-def getUserIds(request, username):
-    try:
-        user = User.objects.get(username=username)
-        uid = user.id
-    except:
-        uid = 0
-    try:
-        worker = Worker.objects.get(user=user)
-        wid = worker.id
-    except:
-        wid = 0
-    try:
-        leader = AdminUser.objects.get(user=user)
-        lid = leader.id
-    except:
-        lid = 0
-    data = {}
-    data["worker"] = wid
-    data["user"] = uid
-    data["leader"] = lid
-    print(data)
-    return Response(data)
-
-
-# Create your views here.
 class LoginAPI(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
-
     def post(self, request, format=None):
         serializer = AuthTokenSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         login(request, user)
         return super(LoginAPI, self).post(request, format=None)
-
     def get_post_response_data(self, request, token, instance):
         UserSerializer = self.get_user_serializer_class()
 
@@ -98,7 +62,6 @@ def signup(request):
         else:
             data = serializer.errors
             return Response(data)
-
         user = User.objects.get(username=data['username'])
         data["token"] = AuthToken.objects.create(user)[1]
         return Response(data)
@@ -140,15 +103,12 @@ def todos(request, username):
         return  # Response({"message": "not a worker yet"})
     return Response(serializer.data)
 
-
 @api_view(['POST'])
 def addTask(request):
     data = request.data
     user = User.objects.get(username=data["worker"])
     worker = Worker.objects.get(user=user)
-    #team = Team.objects.get(name=data["team"])
     data["worker"] = worker.id
-    #data["team"] = team.id
     try:
         task = TaskSerializer(data=data)
         print(data)
@@ -158,20 +118,6 @@ def addTask(request):
     except:
         print("Error")
     return Response(task.data)
-
-
-@api_view(['GET'])
-def isAdminUser(request, username):
-    valid = False
-    try:
-        user = User.objects.get(username=username)
-        adminUser = AdminUser.objects.get(user=user)
-        print("The User : ", user)
-        valid = True
-        return Response({"isAdmin": valid})
-    except:
-        return Response({"isAdmin": valid})
-
 
 @api_view(["GET"])
 def viewTask(request, pk):
@@ -195,12 +141,10 @@ def updateTask(request, pk):
     team = Team.objects.get(name=data["team"])
     data["worker"] = worker.id
     data["team"] = team.id
-
     task = Task.objects.get(id=pk)
     serializer = TaskSerializer(instance=task, data=data)
     if serializer.is_valid():
         serializer.save()
-
     return Response(serializer.data)
 
 
@@ -208,7 +152,6 @@ def updateTask(request, pk):
 def deleteTask(request, pk):
     task = Task.objects.get(id=pk)
     task.delete()
-
     return Response({"message": f"Item with id : {pk} was deleted !"})
 
 # teams
@@ -216,8 +159,40 @@ def deleteTask(request, pk):
 def teams(request):
     teams = Team.objects.all()
     serializer = TeamSerializer(teams, many=True)
-
     return Response(serializer.data)
+
+@api_view(['POST'])
+def addTeam(request):
+    team = TeamSerializer(data=request.data)
+    try:
+        if team.is_valid():
+            print("valid")
+            team.save()
+            return Response(team.data)
+    except:
+        return Response({"message": "A leader must have only one Team"})
+    return Response({"message": "A leader must have only one Team"})
+
+@api_view(['GET'])
+def viewTeam(request, pk):
+    team = Team.objects.get(id=pk)
+    serializer = TeamSerializer(team)
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteTeam(request, pk):
+    team = Team.objects.get(id=pk)
+    team.delete()
+    return Response({"message": f"Item with id : {pk} was deleted !"})
+
+@api_view(['PUT'])
+def updateTeam(request, pk):
+    team = Team.objects.get(id=pk)
+    serializer = TeamSerializer(instance=team, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
 
 @api_view(["GET"])
 def userTeam(request , username):
@@ -236,54 +211,6 @@ def userTeam(request , username):
     except :
         return Response([])
 
-
-@api_view(['POST'])
-def addTeam(request):
-    team = TeamSerializer(data=request.data)
-    try:
-        if team.is_valid():
-            print("valid")
-            team.save()
-            return Response(team.data)
-    except:
-        return Response({"message": "A leader must have only one Team"})
-    return Response({"message": "A leader must have only one Team"})
-
-
-@api_view(['GET'])
-def viewTeam(request, pk):
-    team = Team.objects.get(id=pk)
-    serializer = TeamSerializer(team)
-    return Response(serializer.data)
-
-
-@api_view(['DELETE'])
-def deleteTeam(request, pk):
-    team = Team.objects.get(id=pk)
-    team.delete()
-
-    return Response({"message": f"Item with id : {pk} was deleted !"})
-
-
-@api_view(['PUT'])
-def updateTeam(request, pk):
-    team = Team.objects.get(id=pk)
-    serializer = TeamSerializer(instance=team, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['GET'])
-def myTeams(request , username):
-    username = username.lower()
-    user = User.objects.get(username = username)
-    userAdmin = AdminUser.objects.get(user = user)
-    teams = Team.objects.all().filter(leader = userAdmin)
-
-    serializer = TeamSerializer(teams, many=True)
-
-    return Response(serializer.data)
 
 @api_view(["GET"])
 def workers(request):
@@ -341,4 +268,41 @@ def deleteAsk(request , pk):
 #docs views
 def docs(request):
     return render(request , "docs/index.html")
+
+
+@api_view(['GET'])
+def getUserIds(request, username):
+    try:
+        user = User.objects.get(username=username)
+        uid = user.id
+    except:
+        uid = 0
+    try:
+        worker = Worker.objects.get(user=user)
+        wid = worker.id
+    except:
+        wid = 0
+    try:
+        leader = AdminUser.objects.get(user=user)
+        lid = leader.id
+    except:
+        lid = 0
+    data = {}
+    data["worker"] = wid
+    data["user"] = uid
+    data["leader"] = lid
+    print(data)
+    return Response(data)
+
+@api_view(['GET'])
+def isAdminUser(request, username):
+    valid = False
+    try:
+        user = User.objects.get(username=username)
+        adminUser = AdminUser.objects.get(user=user)
+        print("The User : ", user)
+        valid = True
+        return Response({"isAdmin": valid})
+    except:
+        return Response({"isAdmin": valid})
 
