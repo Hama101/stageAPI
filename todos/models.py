@@ -20,7 +20,7 @@ class Worker(models.Model):
 
 
 class Team(models.Model):
-    name = models.CharField(max_length=200, blank=True, null=True)
+    name = models.CharField(max_length=200, blank=True, null=True ,unique=True)
     leader = models.OneToOneField(
         AdminUser, blank=True, null=True, on_delete=models.CASCADE)
     workers = models.ManyToManyField(Worker)
