@@ -60,7 +60,7 @@ class AskToBeAdmin(models.Model):
     username = models.CharField(max_length=200 ,blank=True , null=True)
     worker = models.OneToOneField(Worker , blank=True , null=True , on_delete=models.CASCADE)
     discreption = models.CharField(max_length=2000 ,  blank=True , null=True )
-    
+
     def __str__(self):
         return f"{self.username} is asking to be admin : {self.worker}"
 
