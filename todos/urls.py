@@ -41,3 +41,7 @@ urlpatterns +=[
     path("deleteAsk/<str:pk>/" , v.deleteAsk , name="deleteAsk"),
     path("myTeam/<str:username>/",v.userTeam , name="userTeam"),
 ]
+#chat room
+urlpatterns += [
+    path("chat/" , v.MessageAPIView.as_view() , name="chat")
+]

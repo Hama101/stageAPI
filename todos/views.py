@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from rest_framework.views import APIView
 from .models import *
 from django.shortcuts import render , redirect 
 from knox.models import AuthToken
@@ -12,6 +13,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics, permissions
+from .pusher import pusher_client
 
 class LoginAPI(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
@@ -306,3 +308,12 @@ def isAdminUser(request, username):
     except:
         return Response({"isAdmin": valid})
 
+class MessageAPIView(APIView):
+    def post(self, request):
+        pusher_client.trigger('chat', 'message', {
+            "team" : request.data['team'],
+            'username': request.data['username'],
+            'message': request.data['message'],
+        })
+
+        return Response([])
