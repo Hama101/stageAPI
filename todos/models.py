@@ -32,6 +32,26 @@ class Team(models.Model):
         return self.leader
 
 
+
+class ChatRoom(models.Model):
+    team = models.OneToOneField(Team , on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.team.name}"
+
+class Message(models.Model):
+    chatRoom = models.ForeignKey(ChatRoom ,on_delete=models.CASCADE)
+    username =models.CharField(max_length=200)
+    send_at = models.DateTimeField(auto_now_add=True)
+    body = models.CharField(max_length=5000  )
+    
+    def __str__(self):
+        return f"{self.username }--->{self.chatRoom}"
+    
+
+
+
+
 class Task(models.Model):
     listOfStatus = [
         ("To Do", "To Do"),

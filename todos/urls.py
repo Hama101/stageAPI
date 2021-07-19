@@ -43,5 +43,7 @@ urlpatterns +=[
 ]
 #chat room
 urlpatterns += [
-    path("chat/" , v.MessageAPIView.as_view() , name="chat")
+    path("room/<str:name>/",v.chatRoom  , name="chat-room"),
+    path("roomMessages/<str:name>/",v.roomMessages ),
+    path("send-message/" , v.sendMessage , name="send-message")
 ]

@@ -49,6 +49,17 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class ChatRoomSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = ChatRoom
+        fields = "__all__"
+
+
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = Message
+        fields = "__all__"
+
 class AdminUserSerializer(serializers.ModelSerializer):
     class Meta :
         model = AdminUser

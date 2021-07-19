@@ -13,7 +13,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics, permissions
-from .pusher import pusher_client
+
 
 class LoginAPI(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
@@ -165,15 +165,18 @@ def teams(request):
 
 @api_view(['POST'])
 def addTeam(request):
-    team = TeamSerializer(data=request.data)
-    try:
-        if team.is_valid():
-            print("valid")
-            team.save()
-            return Response(team.data)
-    except:
-        return Response({"message": "A leader must have only one Team"})
-    return Response({"message": "A leader must have only one Team"})
+    if request.method == 'POST':
+        serializer = TeamSerializer(data=request.data)
+        data = {}
+        if serializer.is_valid():
+            team = serializer.save()
+            data['response'] = 'successfully registered new Team and Chat room.'
+            chatRoom = ChatRoom(team=team)
+            chatRoom.save()
+        else:
+            data = serializer.errors
+            return Response(data)
+        return Response(data)
 
 @api_view(['GET'])
 def viewTeam(request, pk):
@@ -308,12 +311,33 @@ def isAdminUser(request, username):
     except:
         return Response({"isAdmin": valid})
 
-class MessageAPIView(APIView):
-    def post(self, request):
-        pusher_client.trigger('chat', 'message', {
-            "team" : request.data['team'],
-            'username': request.data['username'],
-            'message': request.data['message'],
-        })
+@api_view(['GET'])
+def chatRoom(request , name):
+    team = Team.objects.get(name = name)
+    room = ChatRoom.objects.get(team = team)
+    data = {
+        "room" : room.id
+    }
+    return Response(data)
 
-        return Response([])
+
+@api_view(['GET'])
+def roomMessages(request , name):
+    team = Team.objects.get(name = name)
+    room = ChatRoom.objects.get(team = team)
+    messages = Message.objects.all().filter(chatRoom = room)
+    serializer = MessageSerializer(messages, many=True)
+    return Response(serializer.data)
+
+@api_view(["POST"])
+def sendMessage(request):
+    data = request.data
+    team = Team.objects.get(name = data["room"])
+    room = ChatRoom.objects.get(team = team)
+    data["chatRoom"] = room.id
+    serializer = MessageSerializer(data=data)
+    print(data)
+    if serializer.is_valid():
+        print("valid !")
+        serializer.save()
+    return Response(serializer.data)
