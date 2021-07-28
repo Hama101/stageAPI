@@ -45,5 +45,6 @@ urlpatterns +=[
 urlpatterns += [
     path("room/<str:name>/",v.chatRoom  , name="chat-room"),
     path("roomMessages/<str:name>/",v.roomMessages ),
-    path("send-message/" , v.sendMessage , name="send-message")
+    path("send-message/" , v.sendMessage , name="send-message"),
+    path("getteams/<str:username>/",v.getUserRooms)
 ]

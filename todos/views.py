@@ -341,3 +341,29 @@ def sendMessage(request):
         print("valid !")
         serializer.save()
     return Response(serializer.data)
+
+@api_view(["GET"])
+def getUserRooms (request , username):
+    print("1")
+    user = User.objects.get(username = username)
+    print("2")
+    leader = AdminUser.objects.get(user = user)
+    print("3")
+    worker = Worker.objects.get(user = user)
+    print("4")
+    rooms = []
+    print("6")
+    teams = Team.objects.all()
+    for team in teams :
+        workers = team.workers.all()
+        for worker in workers:
+            if username == worker.user.username:
+                rooms.append(team.name)
+
+    try :
+        team = Team.objects.get(leader = leader)
+        rooms.append(team.name)
+    except :
+        pass
+    rooms = set(rooms)
+    return Response(rooms)
